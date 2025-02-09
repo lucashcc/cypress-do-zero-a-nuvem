@@ -30,11 +30,11 @@ document.querySelector('button[type="submit"]')
     if (!firstNameField.value || !lastNameField.value || !emailField.value || !textareaField.value) {
       return showAndHideErrorMessage()
     }
-    if (isPhoneRequired) {
+    if (isPhoneRequired && !phoneField.value) {
       return showAndHideErrorMessage()
     }
     if (!emailField.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-      return showAndHideErrorMessage()
+       showAndHideErrorMessage()
     }
     firstNameField.value = ''
     lastNameField.value = ''
@@ -58,7 +58,7 @@ function showAndHideErrorMessage() {
   errorMessage.style.display = 'block'
   scroll(0,0)
   hideMessageAfterTimeout(errorMessage)
-  return
+  
 }
 
 function hideMessageAfterTimeout(element) {
