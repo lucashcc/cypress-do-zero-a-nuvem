@@ -34,7 +34,7 @@ document.querySelector('button[type="submit"]')
       return showAndHideErrorMessage()
     }
     if (!emailField.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-       showAndHideErrorMessage()
+      // return showAndHideErrorMessage()
     }
     firstNameField.value = ''
     lastNameField.value = ''
@@ -58,7 +58,7 @@ function showAndHideErrorMessage() {
   errorMessage.style.display = 'block'
   scroll(0,0)
   hideMessageAfterTimeout(errorMessage)
-  
+  return
 }
 
 function hideMessageAfterTimeout(element) {
